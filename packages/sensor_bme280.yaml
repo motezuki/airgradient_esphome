@@ -1,4 +1,3 @@
-
 sensor:
   # https://esphome.io/components/sensor/bme280.html
   - platform: bme280_i2c
@@ -11,3 +10,17 @@ sensor:
     humidity:
       name: "BME280 Humidity"
       id: bme_humidity
+
+  - platform: copy
+    source_id: temp_raw
+    name: "Temperature"
+    id: temp
+    # https://www.airgradient.com/documentation/correction-algorithms/
+    # No current correction for indoor devices, but structure in place if developed
+
+  - platform: copy
+    source_id: humidity_raw
+    name: "Humidity"
+    id: humidity
+    # https://www.airgradient.com/documentation/correction-algorithms/
+    # No current correction for indoor devices, but structure in place if developed
