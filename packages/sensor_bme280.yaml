@@ -1,0 +1,13 @@
+
+sensor:
+  # https://esphome.io/components/sensor/bme280.html
+  - platform: bme280
+    temperature:
+      name: "BME680 BSEC Temperature"
+      id: bme_temp
+    pressure:
+      name: "BME680 BSEC Pressure"
+      id: bme_pressure
+    humidity:
+      name: "BME680 BSEC Humidity"
+      id: bme_humidity
