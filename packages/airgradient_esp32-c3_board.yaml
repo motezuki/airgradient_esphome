@@ -5,9 +5,11 @@ esphome:
   name: "${name}"
   friendly_name: "${friendly_name}"
   name_add_mac_suffix: ${name_add_mac_suffix}  # Set to false if you don't want part of the MAC address in the name
+  platformio_options:
+    board_build.flash_mode: dio #If enter in a boot loop, try changing from qio to dio
 
   project:
-    name: mallocarray.airgradient
+    name: motezuki.airgradient
     version: "$config_version"
   min_version: 2024.6.0
 
