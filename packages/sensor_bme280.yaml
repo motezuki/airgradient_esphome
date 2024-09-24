@@ -1,6 +1,7 @@
 sensor:
   # https://esphome.io/components/sensor/bme280.html
   - platform: bme280_i2c
+    address: 0x76
     temperature:
       name: "BME280 Temperature"
       id: bme_temp
