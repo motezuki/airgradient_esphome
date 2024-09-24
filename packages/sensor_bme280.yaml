@@ -31,7 +31,7 @@ sensor:
 
   - platform: copy
     source_id: bme_pressure
-    name: "Humidity"
+    name: "Pressure"
     id: pressure
     # https://www.airgradient.com/documentation/correction-algorithms/
     # No current correction for indoor devices, but structure in place if developed
