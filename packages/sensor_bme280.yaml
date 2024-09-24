@@ -5,12 +5,15 @@ sensor:
     temperature:
       name: "BME280 Temperature"
       id: bme_temp
+      disabled_by_default: true
     pressure:
       name: "BME280 Pressure"
       id: bme_pressure
+      disabled_by_default: true
     humidity:
       name: "BME280 Humidity"
       id: bme_humidity
+      disabled_by_default: true
 
   - platform: copy
     source_id: bme_temp
@@ -23,5 +26,12 @@ sensor:
     source_id: bme_humidity
     name: "Humidity"
     id: humidity
+    # https://www.airgradient.com/documentation/correction-algorithms/
+    # No current correction for indoor devices, but structure in place if developed
+
+  - platform: copy
+    source_id: bme_pressure
+    name: "Humidity"
+    id: pressure
     # https://www.airgradient.com/documentation/correction-algorithms/
     # No current correction for indoor devices, but structure in place if developed
