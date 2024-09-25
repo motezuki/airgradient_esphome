@@ -4,33 +4,33 @@ sensor:
     address: 0x76
     temperature:
       name: "BME280 Temperature"
-      id: bme_temp
+      id: temp_raw
       disabled_by_default: true
     pressure:
       name: "BME280 Pressure"
-      id: bme_pressure
+      id: pressure_raw
       disabled_by_default: true
     humidity:
       name: "BME280 Humidity"
-      id: bme_humidity
+      id: humidity_raw
       disabled_by_default: true
 
   - platform: copy
-    source_id: bme_temp
+    source_id: temp_raw
     name: "Temperature"
     id: temp
     # https://www.airgradient.com/documentation/correction-algorithms/
     # No current correction for indoor devices, but structure in place if developed
 
   - platform: copy
-    source_id: bme_humidity
+    source_id: humidity_raw
     name: "Humidity"
     id: humidity
     # https://www.airgradient.com/documentation/correction-algorithms/
     # No current correction for indoor devices, but structure in place if developed
 
   - platform: copy
-    source_id: bme_pressure
+    source_id: pressure_raw
     name: "Pressure"
     id: pressure
     # https://www.airgradient.com/documentation/correction-algorithms/
