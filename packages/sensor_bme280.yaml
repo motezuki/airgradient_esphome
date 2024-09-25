@@ -12,15 +12,15 @@ sensor:
       id: humidity_raw
 
   - platform: copy
-    source_id: bme_temp
+    source_id: temp_raw
     name: "Temperature"
-    id: temp_raw
+    id: temp
     # https://www.airgradient.com/documentation/correction-algorithms/
     # No current correction for indoor devices, but structure in place if developed
 
   - platform: copy
-    source_id: bme_humidity
+    source_id: humidity_raw
     name: "Humidity"
-    id: humidity_raw
+    id: humidity
     # https://www.airgradient.com/documentation/correction-algorithms/
     # No current correction for indoor devices, but structure in place if developed
