@@ -5,15 +5,15 @@ sensor:
     temperature:
       name: "BME280 Temperature"
       id: temp_raw
-      disabled_by_default: true
+      internal: true
     pressure:
       name: "BME280 Pressure"
       id: pressure_raw
-      disabled_by_default: true
+      internal: true
     humidity:
       name: "BME280 Humidity"
       id: humidity_raw
-      disabled_by_default: true
+      internal: true
 
   - platform: copy
     source_id: temp_raw
