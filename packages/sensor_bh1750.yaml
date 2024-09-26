@@ -1,0 +1,5 @@
+sensor:
+  - platform: bh1750
+    name: "BH1750 Illuminance"
+    id: Illuminance
+    unit_of_measurement: lx
