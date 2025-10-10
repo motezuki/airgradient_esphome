@@ -5,9 +5,11 @@ esphome:
   name: "${name}"
   friendly_name: "${friendly_name}"
   name_add_mac_suffix: ${name_add_mac_suffix}  # Set to false if you don't want part of the MAC address in the name
+  platformio_options:
+    board_build.flash_mode: dio #If enter in a boot loop, try changing from qio to dio
 
   project:
-    name: mallocarray.airgradient
+    name: motezuki.airgradient
     version: "$config_version"
   min_version: 2025.5.0
 
@@ -15,10 +17,27 @@ esp32:
   board: esp32-c3-devkitm-1
   framework:
     type: esp-idf
+  # Testing upgrading from 5.4.0 which is current default
+  # framework:
+  #   type: arduino
+  #   version: 6.7.0
+
+# esp32_improv:  # Uses around 30% of available flash space due to loading BLE stack
+#   authorizer: none
 
 # Enable logging
 # https://esphome.io/components/logger.html
 logger:
+  id: logs
+  baud_rate: 0  # Must disable serial logging as it conflicts with pms5003 uart pins and ESP32-C3 only has 2 hardware UART
+  logs:
+    component: ERROR  # Hiding warning messages about component taking a long time https://github.com/esphome/issues/issues/4717
+
+# The captive portal is a fallback mechanism for when connecting to the configured WiFi fails.
+# https://esphome.io/components/captive_portal.html
+captive_portal:
+
+# web_server:  # Please note that enabling this component will take up a lot of memory and may decrease stability, especially on ESP8266.
 
 uart:
   # https://esphome.io/components/uart.html#uart
